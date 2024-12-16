@@ -8,9 +8,9 @@ const CVV: React.FC = () => {
   return (
     <div className="flex justify-start items-center">
       <span className="font-bold text-2xl">CVV</span>
-      <NumberButton content={cvvArray[0]} />
-      <NumberButton content={cvvArray[1]} />
-      <NumberButton content={cvvArray[2]} />
+      <NumberButton mode={-1} content={cvvArray[0]} />
+      <NumberButton mode={-1} content={cvvArray[1]} />
+      <NumberButton mode={-1} content={cvvArray[2]} />
     </div>
   );
 };

@@ -12,11 +12,11 @@ const ExpDate: React.FC = () => {
         <span className="font-bold text-lg -my-1.5">GOOD</span>
         <span className="font-bold text-lg -my-1.5">THRU</span>
       </div>
-      <NumberButton content={monthArray[0]} />
-      <NumberButton content={monthArray[1]} />
+      <NumberButton mode={-1} content={monthArray[0]} />
+      <NumberButton mode={-1} content={monthArray[1]} />
       <span className="font-bold text-2xl">/</span>
-      <NumberButton content={yearArray[0]} />
-      <NumberButton content={yearArray[1]} />
+      <NumberButton mode={-1} content={yearArray[0]} />
+      <NumberButton mode={-1} content={yearArray[1]} />
     </div>
   );
 };

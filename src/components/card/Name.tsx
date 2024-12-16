@@ -10,7 +10,7 @@ const Name: React.FC = () => {
         <span className="font-bold text-lg -my-1.5">NAME ON</span>
         <span className="font-bold text-lg -my-1.5">CARD</span>
       </div>
-      <NumberButton content={cardState.name} />
+      <NumberButton mode={-1} content={cardState.name} />
     </div>
   );
 };
