@@ -1,14 +1,21 @@
+import { cn } from "@/lib/utils";
+
 type NumberButtonProps = {
-  children: string;
+  content: string;
 };
 
 const NumberButton: React.FC<NumberButtonProps> = (
   props: NumberButtonProps
 ) => {
-  const { children } = props;
+  const { content } = props;
   return (
-    <button className="bg-white text-2xl rounded p-1 px-2 m-1 my-3">
-      {children}
+    <button
+      className={cn("text-2xl font-bold rounded p-1 px-2 m-1 my-3", {
+        "bg-white": content === "X",
+        "text-yellow-300": content !== "X",
+      })}
+    >
+      {content}
     </button>
   );
 };
