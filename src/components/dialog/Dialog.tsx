@@ -2,10 +2,10 @@ import { useDialogContext } from "@/hooks/useDialogContext";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import Game01 from "../games/Game1";
 
 const DialogMain = () => {
   const { dialogState, dialogDispatch } = useDialogContext();
@@ -21,8 +21,8 @@ const DialogMain = () => {
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Digit {mode}</DialogTitle>
-          <DialogDescription>Add your first digit</DialogDescription>
         </DialogHeader>
+        <Game01 />
       </DialogContent>
     </Dialog>
   );
