@@ -22,7 +22,7 @@ const DialogMain = () => {
         <DialogHeader>
           <DialogTitle>Digit {mode}</DialogTitle>
         </DialogHeader>
-        <Game01 />
+        {mode === 1 && <Game01 />}
       </DialogContent>
     </Dialog>
   );
