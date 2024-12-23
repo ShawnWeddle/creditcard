@@ -1,38 +1,56 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
+import { useCardContext } from "@/hooks/useCreditCardContext";
+import { useDialogContext } from "@/hooks/useDialogContext";
 
 const Game01: React.FC = () => {
-  const [breakdown, setBreakdown] = useState([
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]);
+  const { cardDispatch, cardState } = useCardContext();
+  const { dialogDispatch } = useDialogContext();
 
-  const setBD = (num: number) => {
-    const newDB = [...breakdown];
-    const single = newDB[num];
-    newDB[num] = !single;
-    setBreakdown(newDB);
+  const [breakdown, setBreakdown] = useState(
+    new Set([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+  );
+
+  const handleSet = (num: number) => {
+    const newBD = new Set([...breakdown]);
+    if (newBD.has(num)) {
+      newBD.delete(num);
+    } else {
+      newBD.add(num);
+    }
+    setBreakdown(newBD);
+  };
+
+  const handleSubmit = (num: number) => {
+    const activeState = cardState;
+    const activeCCN = cardState.cardNumber;
+    const midCCN = activeCCN.split("");
+    midCCN[0] = num.toString();
+    const newCCN = midCCN.join("");
+    cardDispatch({
+      type: "CHANGE_CARD_NUMBER",
+      payload: { ...activeState, cardNumber: newCCN },
+    });
+    dialogDispatch({
+      type: "CLOSE_DIALOG",
+      payload: {
+        open: false,
+        mode: -1,
+      },
+    });
   };
 
   const NumButton = (num: number) => {
     return (
       <button
         onClick={() => {
-          setBD(num);
+          handleSet(num);
         }}
         className={cn(
           "text-lg border-black border-2 rounded aspect-square p-1 font-semibold m-1",
           {
-            "border-red-500 bg-red-500 text-white": breakdown[num],
+            "border-red-500 bg-red-500 text-white": !breakdown.has(num),
           }
         )}
       >
@@ -63,8 +81,12 @@ const Game01: React.FC = () => {
       </div>
       <div className="flex justify-center">
         <Button
+          type="submit"
           variant="secondary"
-          disabled={breakdown.filter((bool) => bool).length < 9}
+          disabled={[...breakdown].length !== 1}
+          onClick={() => {
+            handleSubmit([...breakdown][0]);
+          }}
         >
           Submit
         </Button>
@@ -74,18 +96,3 @@ const Game01: React.FC = () => {
 };
 
 export default Game01;
-
-/*
-const bd = {
-    0: false,
-    1: false,
-    2: false,
-    3: false,
-    4: false,
-    5: false,
-    6: false,
-    7: false,
-    8: false,
-    9: false,
-  };
-*/
