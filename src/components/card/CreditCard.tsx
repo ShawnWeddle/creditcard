@@ -5,7 +5,7 @@ import ExpDate from "./ExpDate";
 
 const CreditCard: React.FC = () => {
   return (
-    <div className="w-full font-mono rounded-2xl shadow-2xl aspect-video bg-purple-600 md:max-w-screen-sm lg:max-w-screen-md flex-col flex justify-between">
+    <div className="w-full font-mono rounded-2xl shadow-2xl aspect-video bg-radial from-fuchsia-600 via-purple-600 to-violet-600 md:max-w-screen-sm lg:max-w-screen-md flex-col flex justify-between">
       <div className="text-right text-yellow-300 font-bold text-2xl p-2">
         BANK
       </div>
