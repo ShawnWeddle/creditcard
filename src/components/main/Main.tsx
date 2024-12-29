@@ -1,9 +1,10 @@
-import CreditCard from "../card/CreditCard";
+// import CreditCard from "../card/CreditCard";
+import SevenSquare from "../card/SevenSquare";
 
 const Main: React.FC = () => {
   return (
     <div className="flex justify-center">
-      <CreditCard />
+      <SevenSquare />
     </div>
   );
 };
