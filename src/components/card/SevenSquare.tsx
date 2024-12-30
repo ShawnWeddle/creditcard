@@ -20,7 +20,7 @@ const SevenSquare: React.FC = () => {
           "bg-red-500": num === 0,
           "bg-orange-500": num === 1,
           "bg-yellow-300": num === 2,
-          "bg-lime-400": num === 3,
+          "bg-lime-300": num === 3,
           "bg-green-500": num === 4,
           "bg-cyan-500": num === 5,
           "bg-blue-500": num === 6,
