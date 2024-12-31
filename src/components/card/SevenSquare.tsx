@@ -16,7 +16,7 @@ const SevenSquare: React.FC = () => {
     const borderNum = Math.floor(Math.random() * 10);
     return (
       <div
-        className={cn("w-12 aspect-square border-4 rounded", {
+        className={cn("w-12 aspect-square shadow border-4 rounded", {
           "bg-red-500": num === 0,
           "bg-orange-500": num === 1,
           "bg-yellow-300": num === 2,
