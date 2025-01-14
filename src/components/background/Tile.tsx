@@ -21,18 +21,11 @@ const pointsList: string[] = [
 ];
 
 const colorList: string[] = [
-  "#f00",
-  "#ff0",
-  "#0f0",
-  "#0ff",
-  "#00f",
-  "#f0f",
-  "#000",
-  "#fff",
-  "#b00",
-  "#bb0",
-  "#0b0",
-  "#0bb",
+  "#FF8000",
+  "#FFFF00",
+  "#FF0080",
+  "#00FF80",
+  "#00FFFF",
 ];
 
 const Tile: React.FC<TileProps> = (props: TileProps) => {
@@ -42,11 +35,11 @@ const Tile: React.FC<TileProps> = (props: TileProps) => {
     <svg width="200" height="200">
       <polygon
         points={pointsList[position]}
-        fill={colorList[position]}
-        stroke={colorList[position]}
+        fill="#0080FF"
+        stroke={colorList[color]}
         strokeWidth={10}
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
